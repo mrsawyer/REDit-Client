@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { 
-  BrowserRouter as Router, 
+import {
+  BrowserRouter as Router,
   Route,
   Switch,
   Link,
@@ -9,8 +9,6 @@ import {
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-// Needed for onTouchTap (Material UI)
-// http://stackoverflow.com/a/34015469/988941
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import store from './redux/store';
@@ -19,7 +17,7 @@ import App from './containers/App';
 import CreatePost from './containers/CreatePost';
 import Login from './containers/Login';
 import NotFound from './containers/NotFound';
-import { PostList } from './containers/PostList';
+import PostList from './containers/PostList';
 import Welcome from './containers/Welcome';
 
 import MainLayout from './layouts/MainLayout';

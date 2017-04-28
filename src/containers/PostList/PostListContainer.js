@@ -3,52 +3,32 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { updateVote, sortPopular, sortNewest } from '../../redux/actions';
 import PostList from './PostList';
-
-import './styles.css';
+import { getPosts } from '../../redux/actions';
 
 class PostListContainer extends Component {
-  // constructor() {
-  //   super();
+  constructor() {
+    super();
 
-  //   this.updateVote = this.updateVote.bind(this);
-  //   this.sortPopular = this.sortPopular.bind(this);
-  //   this.sortNewest = this.sortNewest.bind(this);
+    this.updateVote = this.updateVote.bind(this);
+    this.sortPopular = this.sortPopular.bind(this);
+    this.sortNewest = this.sortNewest.bind(this);
 
-  //   this.state={
-  //     posts: data.posts,
-  //     orderby: 'newest'
-  //   }
-  // }
+  }
 
-  updateVote(post) {
-    const upVote = post.votes + 1;
-    this.props.dispatch(updateVote(upVote));
-    // let moreVotes = post.votes++;
-    // this.setState({
-    //   votes: moreVotes
-    // });
+  componentDidMount() {
+    this.props.dispatch(getPosts(1));
+  }
+
+  updateVote(postId) {
+    this.props.dispatch(updateVote(postId));
   }
 
   sortPopular() {
     this.props.dispatch(sortPopular());
-    // let sortedPosts = posts.sort(function (a, b) {
-    //   return b.votes - a.votes;
-    // });
-    // this.setState({
-    //   orderby: 'popular',
-    //   posts: sortedPosts
-    // })
   }
 
   sortNewest() {
     this.props.dispatch(sortNewest());
-    // let sortedPosts = posts.sort(function (a, b) {
-    //   return b.id - a.id;
-    // });
-    // this.setState({
-    //   orderby: 'newest',
-    //   posts: sortedPosts
-    // });
   }
 
 

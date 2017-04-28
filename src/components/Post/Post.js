@@ -12,7 +12,7 @@ const Post = ({ post, updateVote }) => {
       <CardTitle
         style={{ padding: '8px 15px' }}
         titleColor='#551A8B'
-        titleStyle={{ fontSize: '1.25rem', fontWeight: 'bold', padding: '0px' }} 
+        titleStyle={{ fontSize: '1.25rem', fontWeight: 'bold', padding: '0px' }}
         title={post.title}
       />
       <CardText style={{ fontSize: '1rem', padding: '8px 15px' }}>
@@ -24,7 +24,7 @@ const Post = ({ post, updateVote }) => {
             label={ 'Vote ' + post.votes}
             labelPosition="after"
             icon={<NavigationArrowDropUp />}
-            onTouchTap={() => { updateVote(post); }}
+            onTouchTap={() => { updateVote(post.id); }}
           />
         </CardActions>
         {post.categories.map(cats => (
