@@ -36,7 +36,7 @@ ReactDOM.render(
             <Switch>
               <Route exact path="/" component={Welcome} />
               <Route path="/create-post" component={CreatePost} />
-              <Route exact path="/posts" component={PostList} />
+              <Route exact name="lessonpost" path="/lessons/:lesson_id/posts" component={PostList} />
               <Route exact path="/posts/new" component={CreatePost} />
               <Route component={NotFound} />
             </Switch>

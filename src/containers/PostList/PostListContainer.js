@@ -15,8 +15,9 @@ class PostListContainer extends Component {
 
   }
 
-  componentDidMount() {
-    this.props.dispatch(getPosts(1));
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.match.params.lesson_id !== this.props.match.params.lesson_id)
+      this.props.dispatch(getPosts(nextProps.match.params.lesson_id));
   }
 
   updateVote(postId) {

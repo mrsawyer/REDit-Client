@@ -9,7 +9,7 @@ import IconButton from 'material-ui/IconButton';
 import CommunicationImportContacts from 'material-ui/svg-icons/communication/import-contacts';
 
 import Week from '../../components/Week';
-import { getWeeks } from '../../redux/actions';
+import { getWeeks, getPosts } from '../../redux/actions';
 
 class Categories extends Component {
   componentDidMount() {

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
@@ -14,7 +15,9 @@ const Week = ({ weeks }) => {
             <Subheader>{week.title}</Subheader>
             <Divider />
             {week.lessons.map(lesson => (
-              <ListItem primaryText={lesson.title} />
+              <Link to={`/lessons/${lesson.id}/posts`}>
+                <ListItem primaryText={lesson.title} />
+              </Link>
             ))}
           </List>
         </div>
