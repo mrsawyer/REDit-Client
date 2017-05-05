@@ -27,13 +27,13 @@ const Post = ({ post, updateVote }) => {
           />
         </CardActions>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
-        {/*{post.categories.map(cats => (
+        {post.tags.map(tag => (
           <Chip
             style={{ margin: '10px' }}
-            id={cats.id}
+            id={tag.id}
           >
-            {cats.title}
-          </Chip>*/}
+            {tag.tag}
+          </Chip>
         ))}
         </div>
       </div>
