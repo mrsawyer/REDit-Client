@@ -6,14 +6,11 @@ import {
   GET_POSTS
 } from './actions';
 
-import { data } from '../mock-data';
-
-const initialData = data;
-
 export function PostsReducer(state = [], action) {
   switch (action.type) {
     case GET_POSTS:
-      return [...state, { posts: action.posts }];
+      const newPosts = action.payload.posts
+      return newPosts;
     case SORT_POPULAR:
       return [...state].sort((a, b) => b.votes - a.votes);
     case SORT_NEWEST:
@@ -31,7 +28,8 @@ export function PostsReducer(state = [], action) {
 export function WeeksReducer(state = [], action) {
   switch (action.type) {
     case GET_WEEKS:
-      return [...state, { weeks: action.weeks }];
+      const newWeeks = action.payload.weeks
+      return newWeeks;
     default:
       return state;
   }

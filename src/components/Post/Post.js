@@ -4,9 +4,8 @@ import FlatButton from 'material-ui/FlatButton';
 import Chip from 'material-ui/Chip';
 import NavigationArrowDropUp from 'material-ui/svg-icons/navigation/arrow-drop-up';
 
-
-
 const Post = ({ post, updateVote }) => {
+  console.log(post);
   return (
     <Card style={{ width: '98%', margin: '15px auto' }} key={post.id}>
       <CardTitle
@@ -27,13 +26,16 @@ const Post = ({ post, updateVote }) => {
             onTouchTap={() => { updateVote(post.id); }}
           />
         </CardActions>
-        {post.categories.map(cats => (
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+        {/*{post.categories.map(cats => (
           <Chip
             style={{ margin: '10px' }}
+            id={cats.id}
           >
-            {cats}
-          </Chip>
+            {cats.title}
+          </Chip>*/}
         ))}
+        </div>
       </div>
     </Card>
   );

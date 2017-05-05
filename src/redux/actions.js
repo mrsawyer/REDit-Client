@@ -24,10 +24,12 @@ export const getPosts = (postId) => {
             }
             )
             .then((json) => {
-              console.log(json);
+              console.log(json)
               dispatch({
                 type: GET_POSTS,
-                posts: json,
+                payload: {
+                  posts: json
+                }
               });
     });
   }
@@ -42,10 +44,12 @@ export const getWeeks = () => {
             return response.json();
           })
         .then((json) => {
-          console.log(json);
+          console.log(json)
           dispatch({
             type: GET_WEEKS,
-            weeks: json
+            payload: {
+              weeks: json
+            }
           });
         });
   }

@@ -13,8 +13,8 @@ const Week = ({ weeks }) => {
           <List>
             <Subheader>{week.title}</Subheader>
             <Divider />
-            {week.categories.map(cat => (
-              <ListItem primaryText={cat} />
+            {week.lessons.map(lesson => (
+              <ListItem primaryText={lesson.title} />
             ))}
           </List>
         </div>

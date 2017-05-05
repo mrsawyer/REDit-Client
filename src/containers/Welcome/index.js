@@ -7,7 +7,7 @@ class Welcome extends Component {
     render() {
         return (
         <div className={styles.welcome}>
-            {this.props.children}
+            Hello World
         </div>
         );
     }
