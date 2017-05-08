@@ -35,12 +35,14 @@ class PostListContainer extends Component {
 
   render() {
     return (
-      <PostList
-        posts={this.props.posts}
-        updateVote={this.updateVote}
-        sortPopular={this.sortPopular}
-        sortNewest={this.sortNewest}
-      />
+      <div>
+        <PostList
+          posts={this.props.posts}
+          updateVote={this.updateVote}
+          sortPopular={this.sortPopular}
+          sortNewest={this.sortNewest}
+        />
+      </div>
     );
   }
 }

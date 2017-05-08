@@ -5,6 +5,8 @@ export const SORT_POPULAR = 'SORT_POPULAR';
 export const SORT_NEWEST = 'SORT_NEWEST';
 export const GET_POSTS = 'GET_POSTS';
 export const GET_WEEKS = 'GET_WEEKS';
+export const LOGIN_SUCCESS = 'LOGIN';
+
 
 
 // Function
@@ -52,5 +54,35 @@ export const getWeeks = () => {
             }
           });
         });
+  }
+}
+
+export const login = (data) => {
+  return function (dispatch) {
+    fetch("http://localhost:3001/auth/login", {
+        method: "POST",
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify({
+            username: data.email,
+            password: data.password,
+        })
+    }).then((result) => {
+      dispatch({
+            type: LOGIN_SUCCESS,
+            payload: result
+          });
+    })
+      .catch(function(error) {
+        console.log(error);
+      })
+  }
+}
+
+export function loginRequestSuccess(user) {
+  return {
+    type: LOGIN_SUCCESS,
+    user
   }
 }

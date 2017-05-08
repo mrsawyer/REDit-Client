@@ -3,7 +3,8 @@ import {
   SORT_POPULAR,
   SORT_NEWEST,
   GET_WEEKS,
-  GET_POSTS
+  GET_POSTS,
+  LOGIN_SUCCESS
 } from './actions';
 
 export function PostsReducer(state = [], action) {
@@ -34,4 +35,19 @@ export function WeeksReducer(state = [], action) {
       return state;
   }
 }
+
+export function LoginReducer(state = {login: false}, action) {
+  switch (action.type) {
+    case LOGIN_SUCCESS: {
+      console.log(state);
+      if(action.payload) {
+        let login = true;
+        return {...state, login};
+      }
+      }
+    default:
+      return state;
+  }
+}
+
 

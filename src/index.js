@@ -5,6 +5,7 @@ import {
   Route,
   Switch,
   Link,
+  IndexRoute,
   Redirect
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -31,17 +32,15 @@ ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider muiTheme={muiTheme}>
       <Router>
-        <MainLayout>
-          <App>
-            <Switch>
-              <Route exact path="/" component={Welcome} />
-              <Route path="/create-post" component={CreatePost} />
-              <Route exact name="lessonpost" path="/lessons/:lesson_id/posts" component={PostList} />
-              <Route exact path="/posts/new" component={CreatePost} />
-              <Route component={NotFound} />
-            </Switch>
-          </App>
-        </MainLayout>
+        <Route component={MainLayout}>
+          <Route path="/" component={App}>
+            <IndexRoute component={Welcome} />
+            <Route exact path="lessons/:lesson_id/posts" component={PostList} />
+            <Route exact path="posts/new" component={CreatePost} />
+          </Route>
+          <Route path="login" component={Login} />
+          <Route component={NotFound} />
+        </Route>
       </Router>
     </MuiThemeProvider>
   </Provider>,
